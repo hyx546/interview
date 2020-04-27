@@ -1,3 +1,4 @@
+// instanceof基于原型链
 function myInstanceof (left ,right) {
   if(typeof left !== 'object' || left === null) return false;
   //  Object.getPrototypeOf 可以拿到参数的原型对象
