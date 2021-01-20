@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>this的指向</title>
+</head>
+<body>
+  <script>
+    // 1.函数式调用模式
+
+    // function fn() {
+    //   console.log(this);
+    // }
+    // fn()
+    
+
+    // 2.方法式调用模式
+    // var obj = {
+    //   fn:function() {
+    //     console.log(this);
+    //   }
+    // }
+    // obj.fn();
+
+    // 3.构造函数调用模式
+    function Person() {
+      console.log(this);
+    }
+    Person();
+    var p = new Person();
+    console.log('----------');
+    console.log(p);
+
+  </script>
+</body>
+</html>
