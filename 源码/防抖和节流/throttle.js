@@ -1,11 +1,11 @@
-function throttle(fn,delay) {
-  let flag = true;
-  return function () {
+function throttle(fn, delay) {
+  let flag = true; // 闭包的一个标记
+  return function() {
     if(!flag) return false;
     flag = false;
     setTimeout(() => {
-      fn();
-      flag = true
+      fn.call(this);
+      flag = true;
     },delay)
   }
 }
