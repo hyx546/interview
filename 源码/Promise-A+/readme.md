@@ -24,3 +24,6 @@ promise必须提供一个then方法，来访问最终的结果
    - 其他情况，直接返回以该值为成功状态的proimise对象
 
    - thenable对象采用settimeout 是根据原生promise对象执行的结果推断的，为了同样的执行顺序，增加setTimeout延时
+
+## 2.4 reject方法
+   - reject和resolve方法不同，reject的参数，会原封不动的作为reject的理由，变为后续方法的参数
