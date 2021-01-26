@@ -22,3 +22,5 @@ promise必须提供一个then方法，来访问最终的结果
    - 如果value是个thenable对象，返回的promise会“跟随”这个thenable的对象，采用它的最终状态。
    - 如果value是一个promise对象，那么就原封不动的返回这个promise对象；
    - 其他情况，直接返回以该值为成功状态的proimise对象
+
+   - thenable对象采用settimeout 是根据原生promise对象执行的结果推断的，为了同样的执行顺序，增加setTimeout延时
