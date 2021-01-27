@@ -1,6 +1,7 @@
 // 子类可以独立的拥有父类的属性和方法
 // 子类可以继承父类原型上的属性和方法
 // 缺点：父构造函数被调用的次数太多了，影响性能
+// 子类原型上的constructor需要指回给子类的构造函数
 function Parent() {
   this.name = 'hanyuxi';
   this.play = ['run','hhhh']
