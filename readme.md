@@ -274,6 +274,12 @@ z-index 是用来调整元素和子元素在z轴上的顺序。通常来说，z-
 - 元素的透明度 opacity 小于1
 - 元素的 will-change 属性具备会创建层叠上下文的值
 ## position
+- static 默认值 正常文档流
+- relative 相对定位 相对于该元素在正常文档流的偏移量
+- absolute 绝对定位 相对于static以外的最近的父级元素进行偏移
+- fixed 固定定位 相对于浏览器进行定位
+- sticky 当到达了阀值时，从relative变为sticky
+当设置了sticky，overflow必须是visible；z-index是无效的
 
 ## flex
 
