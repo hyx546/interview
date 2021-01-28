@@ -27,3 +27,5 @@ promise必须提供一个then方法，来访问最终的结果
 
 ## 2.4 reject方法
    - reject和resolve方法不同，reject的参数，会原封不动的作为reject的理由，变为后续方法的参数
+
+## 2.5 promise
