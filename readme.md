@@ -249,7 +249,30 @@ vuex和redux都是做状态管理的，要保证状态是可预测的，如果�
 # css
 
 ## z-index
+z-index 是用来调整元素和子元素在z轴上的顺序。通常来说，z-index 值较大的元素会覆盖较低的元素。
+- 默认值是auto，可以是正负数
+- 如果不考虑css3，只有定位元素(position:relative/absolute/fixed)的 z-index 才有作用
 
+### 层叠水平
+不同的DOM元素在一起发生重叠时，它们的显示顺序会遵循层叠水平的规则，而z-index就是用来调整某个元素的显示顺序
+#### 著名的7阶层叠水平
+- background/border
+- z-index 负
+- block
+- float
+- inline/inline-block
+- z-index:auto /z-index:0
+- z-index正
+
+### 依赖 z-index 值创建层叠上下文的情况
+- 定位元素(position:relative/absolute/fixed)
+- flex 项(父元素 display 为 flex|inline-flex)，注意是子元素，不是父元素创建层叠上下文
+这两种情况下，需要设置具体的 z-index 值，不能设置 z-index 为 auto，这也就是 z-index: auto 和 z-index: 0 的一点细微差别
+
+
+### 不需要配合 z-index 触发创建层叠上下文
+- 元素的透明度 opacity 小于1
+- 元素的 will-change 属性具备会创建层叠上下文的值
 ## position
 
 ## flex
