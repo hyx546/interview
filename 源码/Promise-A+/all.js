@@ -1,0 +1,56 @@
+// Promise.all(promises:[]).then(fun:function)
+
+// var promises = () =>  {
+//   return [100,200,300].map(current => {
+//     return new Promise((resolve,reject) => {
+//       setTimeout(() => {
+//         console.log(current);
+//       }, current);
+//     })
+//   })
+// }
+
+// Promise.all(promises()).then(() => {
+//   console.log('end');
+// })
+
+//  并发限制
+
+const multiRequest = (urls=[],maxNum) => {
+  // 请求的总数量
+  const len  = urls.length;
+  // 根据的请求数量来创建一个数组用来保存请求的结果
+  const result = new Array(len).fill(false);
+
+  // 当前完成的数量
+  let count =0;
+
+  return new Promise((resolve,reject) => {
+    while (count < maxNum) {
+      next();
+    }
+    function next() {
+      let current = count++;
+      // 处理边界条件
+      if(current >= len){
+        // 请求全部完成就讲promise置为成功状态，然后将result作为promise值返回
+        !result.includes(false) && resolve(result);
+        return ;
+      }
+      const url = urls[current];
+      fetch(url).then(res => {
+        // 保存请求的结果
+        result[current] = res;
+        if(current < len){
+          next()
+        }
+      }).catch(err => {
+        result[current] = err;
+        if(current < len){
+          next()
+        }
+      })
+    }
+  })
+
+}

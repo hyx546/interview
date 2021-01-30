@@ -1,7 +1,7 @@
 # 术语
  - 1.promise 是一个有then方法的对象或者是函数，行为遵守本规范
  - 2.thenable 是一个有then方法的对象或者是函数
-    - 作用：使promise的实现更具有通用性
+ - 作用：使promise的实现更具有通用性
  - 3.value 是promise状态成功的值，包括undefined/thenable或者是promise
  - 4.exception 是一个使用throw抛出的异常值
  - 5.reason 是promise状态失败时的值
@@ -28,4 +28,7 @@ promise必须提供一个then方法，来访问最终的结果
 ## 2.4 reject方法
    - reject和resolve方法不同，reject的参数，会原封不动的作为reject的理由，变为后续方法的参数
 
-## 2.5 promise
+## 2.5 promise.all 方法
+   - promise数组中所有的promise都达到resolve状态，才可以then回调
+
+
