@@ -19,10 +19,28 @@
 
 
 
-function Person() {
+// function Person() {
     
-}
-const p1 = new Person();
-const p2 = new Person();
+// }
+// const p1 = new Person();
+// const p2 = new Person();
 
-console.log('----p1',p1.__proto__ === p2.__proto__);
+// console.log('----p1',p1.__proto__ === p2.__proto__);
+
+
+var A =  {
+  color:'color'
+}
+
+var B =  {
+  name:'name'
+}
+
+var C = {
+  type:'type'
+}
+
+C.__proto__ = B
+B.__proto__ = A
+
+console.log(C.color);
