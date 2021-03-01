@@ -7,8 +7,8 @@ function deepClone(obj) {
   return newArr
 }
 let a=[1,2,3,[1,4]]
-// let b=deepClone(a);
-let b=a
+let b=deepClone(a);
+// let b=a
 b[2]=4
 console.log('====================================');
 console.log(a);
