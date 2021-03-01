@@ -18,10 +18,26 @@
 // }
 
 
-var n = 1;
-function foo(){
-  n = 100;
-  console.log(n);
-};
-console.log(n);
-foo()
+// var n = 1;
+// function foo(){
+//   var n = 100;
+//   console.log(n);
+// };
+// console.log(n);
+// foo()
+// console.log(n);
+
+// undefined undefined 报错
+// function Parent(){
+//   this.a = 'Parent';
+// }
+// function Tom() {
+//   this.a = 'Tom'
+// }
+// Parent.__proto__.print = function(){
+//   console.log(this)
+// }
+// Parent.print()
+// Tom.print()
+// var child = new Parent()
+// child.print()

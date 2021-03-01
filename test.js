@@ -15,5 +15,16 @@
 // })
 // console.log(a.join(''));
 
-const arr = [1, 2, 4];
+// const arr = [1, 2, 4];
+
+
+// console.log('outer');
+// setTimeout(() => {
+//   setTimeout(() => {
+//     console.log('setTimeout');
+//   }, 0);
+//   setImmediate(() => {
+//     console.log('setImmediate');
+//   });
+// }, 0);
 
