@@ -1,9 +1,10 @@
-function debounce (fn,delay) {
+const debounce = (fn, delay) => {
   let timer = null;
-  return function() {
-    if(timer) clearTimeout(timer);
+  return function(){
+    let self = this;
+    if(timer) clearTimeout(timer); // delay内再次触发，则清空
     timer = setTimeout(() => {
-      fn.call(this)
+      fn.apply(self,arguments)
     },delay)
   }
-}
+};
