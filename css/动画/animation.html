@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .main{
+				position: relative;
+				width: 500px;
+				height: 500px;
+				border: 5px solid pink;
+				margin: 20px auto;
+				border-radius: 4px;
+			}
+			.move{
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				background: #e65786;
+				border-radius: 10px;
+				animation: 5s move;
+				animation-fill-mode: forwards;
+				color: white;
+			}
+      @keyframes move{
+				0%{
+					top: 0px;
+          opacity: 0;
+				}
+        25%{
+					top: 25px;
+          opacity: 0.25;
+				}
+        50%{
+					top: 50px;
+          opacity: 0.5;
+				}
+				75%{
+					top: 70px;
+          opacity: 0.75;
+				}
+				100%{
+					top: 100px;
+				}
+			}
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <div class="move">
+      我是一只会动的盒子
+    </div>
+  </div>
+
+</body>
+
+</html>
