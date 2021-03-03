@@ -5,7 +5,7 @@
 // 4.如果返回的是非基本数据类型，则返回，否则返回obj
 // function _new(fn, ...arg) {
 //   let obj = Object.create(fn.prototype);
-//   const result = Object.apply(obj, ...arg);
+//   const result = Object.apply(obj, arg);
 //   return Object.prototype.toString.call(result) === [object, Object] ? result : obj;
 // }
 
