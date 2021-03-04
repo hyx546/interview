@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    p{
+    /* p {
       background-color: red;
       color: #000000;
       position: absolute;
+    } */
+
+    .lightblue p {
+      color: lightblue;
+    }
+
+    .darkblue p {
+      color: darkblue;
     }
   </style>
 </head>
+
 <body>
   <!-- 后面的会覆盖前面的 -->
   <div>
@@ -19,5 +29,19 @@
     <p>2222</p>
     <p>3333</p>
   </div>
+
+  <!-- 都是深蓝色，代码是从上到下执行的，深蓝会覆盖 -->
+  <div class="lightblue">
+    <div class="darkblue">
+      <p>我是什么颜色？</p>
+    </div>
+  </div>
+
+  <div class="darkblue">
+    <div class="lightblue">
+      <p>我是什么颜色？</p>
+    </div>
+  </div>
 </body>
+
 </html>
