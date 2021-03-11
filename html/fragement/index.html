@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DocumentFragment</title>
+</head>
+
+<body>
+  <div>
+    <ul id='container'>
+
+    </ul>
+  </div>
+  <!-- 使用DocumentFragment:DocumentFragment是一个游离于DOM树之外的节点，
+    在此节点上批量操作，最后插入到dom树中，只触发一次回流 -->
+  <script>
+    var container = document.getElementById('container');
+    var fragment = document.createDocumentFragment();
+    for (let i = 0; i < 10000; i++) {
+      let li = document.createElement('li');
+      li.innerHTML = 'hello hyx';
+      fragment.appendChild(li)
+    }
+    container.appendChild(fragment)
+  </script>
+</body>
+
+</html>
