@@ -1,4 +1,6 @@
 function deepClone(obj) {
+  if(obj instanceof RegExp) return new RegExp(obj);
+  if(obj instanceof Date) return new Date(obj);
   // 非引用类型，直接返回
   if (!obj || typeof obj !== 'object') return obj
   //创建一个变量用来存储对象或者数组类型

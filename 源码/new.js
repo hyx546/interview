@@ -1,6 +1,6 @@
 function test(fn) {
   let obj = {};
   obj.__proto__ = fn.prototype;
-  fn.apply(obj, arguments)
-  return obj
+  const result = fn.apply(obj, arguments)
+  return result instanceof Object ? result : obj
 }
