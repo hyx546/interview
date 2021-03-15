@@ -1,6 +1,6 @@
 Array.prototype.myReduce = function (fn, initValue) {
   if (!initValue && !this.length) {
-    throw error('error')
+    throw new Error('error')
   }
   let result = initValue ? initValue : this[0];
   for (let i = initValue ? 0 : 1; i < this.length; i++) {
