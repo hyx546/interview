@@ -1,0 +1,29 @@
+{
+  "name": "interview",
+  "version": "1.0.0",
+  "description": "## 判断 JS 数据类型",
+  "main": "1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "git add -A && git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyx546/interview.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyx546/interview/issues"
+  },
+  "homepage": "https://github.com/hyx546/interview#readme",
+  "devDependencies": {
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  }
+}
