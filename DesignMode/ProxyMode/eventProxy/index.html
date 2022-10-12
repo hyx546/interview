@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>event proxy</title>
+	</head>
+	<body>
+		<div id="father">
+			<a href="#">链接一号</a>
+			<a href="#">链接二号</a>
+			<a href="#">链接三号</a>
+			<a href="#">链接四号</a>
+			<a href="#">链接五号</a>
+			<a href="#">链接六号</a>
+		</div>
+
+		<!-- <script>
+			// 不用代理
+			const nodes = document
+				.getElementById("father")
+				.getElementsByTagName("a");
+			for (let i = 0; i < nodes.length; i++) {
+				nodes[i].addEventListener("click", (e) => {
+					e.preventDefault();
+					alert(nodes[i].innerText);
+				});
+			}
+		</script> -->
+
+		<script>
+			// 使用事件代理
+			const father = document.getElementById("father");
+			father.addEventListener("click", (e) => {
+				if (e.target.tagName === "A") {
+					e.preventDefault();
+					alert(e.target.innerText);
+				}
+			});
+		</script>
+	</body>
+</html>
