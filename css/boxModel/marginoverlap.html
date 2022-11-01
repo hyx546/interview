@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>边距重叠问题</title>
+		<style>
+			html * {
+				padding: 0;
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 盒模型边距重叠问题 -->
+		<style>
+			.parent {
+				background-color: red;
+				overflow: hidden;
+				/* display: inline-block; */
+				width: 100%;
+			}
+			.child {
+				height: 100px;
+				margin-top: 10px;
+				background-color: yellow;
+			}
+		</style>
+		<div class="parent">
+			<div class="child"></div>
+		</div>
+
+		<!-- BFC垂直方向边距重叠 -->
+		<br />
+		<section id="margin">
+			<style>
+				#margin {
+					background-color: pink;
+					overflow: hidden;
+				}
+
+				#margin > p {
+					margin: 5px auto 25px;
+					background-color: red;
+				}
+			</style>
+			<p>1</p>
+			<div style="overflow: hidden">
+				<p>2</p>
+			</div>
+			<p>3</p>
+		</section>
+
+		<!-- BFC不与float重叠 -->
+		<br />
+		<section id="layout">
+			<style>
+				#layout {
+					background-color: red;
+				}
+				#layout .left {
+					float: left;
+					width: 100px;
+					height: 100px;
+					background-color: pink;
+				}
+
+				#layout .right {
+					overflow: hidden;
+					height: 110px;
+					background-color: yellow;
+				}
+			</style>
+			<div class="left"></div>
+			<div class="right"></div>
+		</section>
+
+		<!-- BFC高度计算时，float元素也参与计算 -->
+		<br />
+		<section id="float">
+			<style>
+				#float {
+					width: 100%;
+					background-color: red;
+					overflow: hidden;
+				}
+
+				#float .float {
+					float: left;
+					font-size: 30px;
+				}
+			</style>
+			<div class="float">我是浮动元素</div>
+		</section>
+	</body>
+</html>

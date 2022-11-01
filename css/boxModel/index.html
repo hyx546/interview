@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.contentBox {
+				box-sizing: content-box;
+				width: 200px;
+				padding: 5px;
+				border: 2px solid red;
+				margin: 10px;
+			}
+			.borderBox {
+				box-sizing: border-box;
+				width: 200px;
+				padding: 5px;
+				border: 2px solid red;
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 盒模型的两种模式 -->
+		<div class="box">
+			<div
+				class="contentBox"
+				id="contentBox"
+				style="
+					width: 300px;
+					padding: 5px;
+					border: 2px solid red;
+					margin: 10px;
+				"
+			>
+				标准盒模型
+			</div>
+			<br />
+			<div
+				class="borderBox"
+				id="borderBox"
+				style="
+					width: 300px;
+					padding: 5px;
+					border: 2px solid red;
+					margin: 10px;
+				"
+			>
+				IE盒模型
+			</div>
+		</div>
+
+		<!-- 获取dom元素的高度的四种方式 -->
+		<script>
+			const contentBox = document.getElementById("contentBox");
+			const borderBox = document.getElementById("borderBox");
+
+			const contentBoxWidth1 = contentBox.style.width;
+			// const contentBoxWidth2 = contentBox.currentStyle.width;
+			const contentBoxWidth3 = window.getComputedStyle(contentBox).width;
+			const contentBoxWidth4 = contentBox.getBoundingClientRect().width;
+			console.log(
+				"标准盒模型的宽度:",
+				contentBoxWidth1,
+				// contentBoxWidth2
+				contentBoxWidth3,
+				contentBoxWidth4
+			);
+
+			const borderBoxWidth1 = borderBox.style.width;
+			// const borderBoxWidth2 = borderBox.currentStyle.width;
+			const borderBoxWidth3 = window.getComputedStyle(borderBox).width;
+			const borderBoxWidth4 = borderBox.getBoundingClientRect().width;
+			console.log(
+				"IE盒模型的宽度:",
+				borderBoxWidth1,
+				//  borderBoxWidth2
+				borderBoxWidth3,
+				borderBoxWidth4
+			);
+		</script>
+	</body>
+</html>
