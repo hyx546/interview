@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>float 三栏布局</title>
+	</head>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		section {
+			margin-top: 20px;
+		}
+		div {
+			height: 100px;
+		}
+	</style>
+	<body>
+		<!-- float -->
+		<section class="layout float">
+			<style>
+				.layout.float {
+					height: 100px;
+					/* overflow: hidden; */
+				}
+				.layout.float .left-right-center:after {
+					content: "";
+					display: block;
+					clear: both;
+				}
+				.layout.float .left {
+					width: 300px;
+					background: red;
+					height: 100px;
+					float: left;
+				}
+				.layout.float .center {
+					background-color: yellow;
+					height: 100px;
+				}
+				.layout.float .right {
+					width: 300px;
+					background-color: green;
+					height: 100px;
+					float: right;
+				}
+				.layout.float .clear {
+					clear: both;
+					height: 0;
+					font-size: 0;
+				}
+			</style>
+			<article class="left-right-center">
+				<div class="left"></div>
+				<div class="right"></div>
+				<div class="center">
+					<h1>浮动解决方案</h1>
+					这是三栏布局的中间部分
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+				</div>
+				<!-- <div class="clear"></div> -->
+				<br clear="all" />
+			</article>
+		</section>
+
+		<!-- absolute -->
+		<section class="layout absolute">
+			<style>
+				.layout.absolute {
+					position: relative;
+					width: 100%;
+					height: 100px;
+				}
+				.layout.absolute .left {
+					position: absolute;
+					width: 300px;
+					background: red;
+					left: 0;
+				}
+				.layout.absolute .right {
+					position: absolute;
+					width: 300px;
+					background-color: green;
+					right: 0;
+				}
+				.layout.absolute .center {
+					position: absolute;
+					background-color: yellow;
+					left: 300px;
+					right: 300px;
+				}
+			</style>
+			<article class="left-right-center">
+				<div class="left"></div>
+				<div class="right"></div>
+				<div class="center">
+					<h1>绝对定位解决方案</h1>
+					这是三栏布局的中间部分
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+				</div>
+			</article>
+		</section>
+
+		<!-- flex -->
+		<section class="layout flex">
+			<style>
+				.layout.flex .left-right-center {
+					display: flex;
+					width: 100%;
+					height: 100px;
+				}
+				.layout.flex .left {
+					width: 300px;
+					background: red;
+				}
+				.layout.flex .right {
+					width: 300px;
+					background-color: green;
+				}
+				.layout.flex .center {
+					background-color: yellow;
+					flex: 1;
+				}
+			</style>
+			<article class="left-right-center">
+				<div class="left"></div>
+				<div class="center">
+					<h1>flex解决方案</h1>
+					这是三栏布局的中间部分
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+				</div>
+				<div class="right"></div>
+			</article>
+		</section>
+
+		<!-- table -->
+		<section class="layout table">
+			<style>
+				.layout.table .left-right-center {
+					width: 100%;
+					display: table;
+					height: 100px;
+				}
+				.layout.table .left-right-center > div {
+					display: table-cell;
+				}
+				.layout.table .left {
+					width: 300px;
+					background: red;
+				}
+				.layout.table .right {
+					width: 300px;
+					background-color: green;
+				}
+				.layout.table .center {
+					background-color: yellow;
+				}
+			</style>
+			<article class="left-right-center">
+				<div class="left"></div>
+				<div class="center">
+					<h1>表格布局解决方案</h1>
+					这是三栏布局的中间部分
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+				</div>
+				<div class="right"></div>
+			</article>
+		</section>
+
+		<!-- grid -->
+		<section class="layout grid">
+			<style>
+				.layout.grid .left-right-center {
+					width: 100%;
+					display: grid;
+					grid-template-columns: 300px auto 300px;
+					grid-template-rows: 100px;
+				}
+				.layout.grid .left {
+					background: red;
+				}
+				.layout.grid .right {
+					background-color: green;
+				}
+				.layout.grid .center {
+					background-color: yellow;
+				}
+			</style>
+			<article class="left-right-center">
+				<div class="left"></div>
+				<div class="center">
+					<h1>网格布局解决方案</h1>
+					这是三栏布局的中间部分
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+					<p>撑开高度</p>
+				</div>
+				<div class="right"></div>
+			</article>
+		</section>
+	</body>
+</html>
