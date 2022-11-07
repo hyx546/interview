@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>面向对象声明和实例</title>
+	</head>
+	<body>
+		<script>
+			/**
+			 * 类的声明
+			 */
+			function Animal() {
+				this.name = "name";
+			}
+
+			/**
+			 * ES6 中类的声明
+			 */
+			class Animal2 {
+				constructor() {
+					this.name = "name";
+				}
+			}
+
+			/**
+			 * 实例、化
+			 */
+			const animalIns = new Animal();
+			const animal2Ins = new Animal2();
+
+			console.log(animalIns, animal2Ins);
+		</script>
+	</body>
+</html>
