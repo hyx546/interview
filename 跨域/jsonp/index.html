@@ -24,7 +24,7 @@
     <script src="http://localhost:3000/test?callback=doSomething"></script> -->
 
 		<script>
-            // 封装js哦牛皮
+			// 封装js哦牛皮
 			function jsonp({ url, params, callback }) {
 				return new Promise((resolve, reject) => {
 					const script = document.createElement("script");

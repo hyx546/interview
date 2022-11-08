@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>postMessage B</title>
+	</head>
+	<body>
+		<iframe
+			id="cframe"
+			src="http://localhost:4000/c.html"
+			frameborder="0"
+			onload="load()"
+		></iframe>
+		<div>b.html</div>
+		<script>
+			// window.onmessage = function (e) {
+			// 	console.log("b-----", e.data);
+			// 	e.source.postMessage("hello", e.origin);
+			// };
+
+			function load() {
+				const cframe = document.getElementById("cframe");
+				cframe.contentWindow.postMessage(
+					"cccccc hello",
+					"http://localhost:4000"
+				);
+				window.onmessage = function (e) {
+					console.log("b-----", e.data);
+					// e.source.postMessage("hello", e.origin);
+				};
+			}
+		</script>
+	</body>
+</html>

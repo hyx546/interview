@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>postMessage</title>
+	</head>
+	<body>
+		<iframe
+			id="frame"
+			src="http://localhost:3000/b.html"
+			frameborder="0"
+			onload="load()"
+		></iframe>
+
+		<div>a.html</div>
+		<script>
+			function load() {
+				const iframe = document.getElementById("frame");
+				iframe.contentWindow.postMessage("hi", "http://localhost:3000");
+
+				window.onmessage = function (e) {
+					console.log("2222", e);
+				};
+			}
+		</script>
+	</body>
+</html>
