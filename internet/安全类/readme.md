@@ -32,6 +32,14 @@
 原理： 通过将token放入cookie中，然后请求时取出cookie中的token作为请求参数，服务器校验cookie中的token和url中的token是否一致
 缺点：跨域会存在请求无法获取cookie
 
+- sameSite 防止第三方访问cookie
+
+- strict 不允许第三方访问
+
+- lax 稍微放松
+
+- none
+
 ## XSS 跨站脚本攻击
 
 通过向网站中注入一段恶意js脚本，引诱用户进行点击
