@@ -1,34 +1,22 @@
-function constructorFunA() {
-    console.log('这是一个构造函数A');
-}
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var majorityElement = function (nums) {
+    const num = nums.length / 2;
+    const map = new Map();
+    for (let i = 0; i < nums.length; i++) {
+        let count = 1;
 
+        if (map.has(nums[i])) {
+            count += map.get(nums[i]);
+        }
+        console.log(count);
+        if (count > num) {
+            return nums[i];
+        }
+        map.set(nums[i], count);
+    }
+};
 
-function constructorFunB() {
-    console.log('这是一个构造函数B');
-}
-
-function constructorFunC() {
-    console.log('这是一个构造函数C');
-}
-
-const instanceObj = new constructorFunA();
-
-constructorFunC.prototype = constructorFunA.prototype;
-
-
-console.log(instanceObj instanceof constructorFunA);
-console.log(instanceObj instanceof constructorFunB);
-console.log(instanceObj instanceof constructorFunC);
-console.log(instanceObj instanceof Object);
-
-
-console.log(instanceObj.__proto__.constructor === constructorFunA);
-console.log(instanceObj.__proto__.constructor === Object);
-
-
-function myNew(fun, ...agrs) {
-    const obj = {};
-    obj.__proto__ = fun.prototype;
-    const result = fun.apply(this, agrs);
-    return result instanceof Object ? result : obj;
-}
+console.log(majorityElement([3, 2, 3]));

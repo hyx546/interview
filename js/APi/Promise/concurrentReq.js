@@ -13,7 +13,7 @@ const tasks = [
     () => delay(1008, true),
     () => delay(1002, true),
     () => delay(1005, true),
-    // () => Promise.reject('error', false)
+    () => Promise.reject('error', false)
 ];
 
 /**
@@ -22,60 +22,87 @@ const tasks = [
  * @param {*} limitNum 
  * @returns 
  */
+// function creatConcurrentRqe(tasks, limitNum) {
+//     // let index = 0;
+//     // const results = [];
+//     // let arr = new Array(limitNum).fill(null);
+
+//     // arr = arr.map(() => {
+//     //     return new Promise((resolve, reject) => {
+//     //         run();
+
+//     //         function run() {
+//     //             if (index >= tasks.length) {
+//     //                 resolve();
+//     //                 return;
+//     //             }
+//     //             const oldIndex = index++;
+//     //             const task = tasks[oldIndex];
+
+//     //             task().then((data) => {
+//     //                 results[oldIndex] = data;
+//     //                 run();
+//     //             }).catch((error) => reject(error));
+//     //         }
+//     //     });
+//     // });
+
+//     // return Promise.all(arr).then(() => results);
+
+//     let index = 0;
+//     const results = [];
+
+//     const len = tasks.length;
+
+//     return new Promise((resolve, reject) => {
+//         while (index < limitNum) {
+//             run();
+//         }
+
+//         function run() {
+//             const curIndex = index++;
+//             if (curIndex >= len) {
+//                 resolve(results);
+//                 return;
+//             }
+//             const task = tasks[curIndex];
+
+//             task().then((data) => {
+//                 results[curIndex] = data;
+//                 run();
+//             }).catch((error) => reject(error));
+//         }
+//     });
+
+// }
+
+
 function creatConcurrentRqe(tasks, limitNum) {
-    // let index = 0;
-    // const results = [];
-    // let arr = new Array(limitNum).fill(null);
-
-    // arr = arr.map(() => {
-    //     return new Promise((resolve, reject) => {
-    //         run();
-
-    //         function run() {
-    //             if (index >= tasks.length) {
-    //                 resolve();
-    //                 return;
-    //             }
-    //             const oldIndex = index++;
-    //             const task = tasks[oldIndex];
-
-    //             task().then((data) => {
-    //                 results[oldIndex] = data;
-    //                 run();
-    //             }).catch((error) => reject(error));
-    //         }
-    //     });
-    // });
-
-    // return Promise.all(arr).then(() => results);
+    let temp = new Array(limitNum).fill(null);
 
     let index = 0;
     const results = [];
 
-    const len = tasks.length;
-
-    return new Promise((resolve, reject) => {
-        while (index < limitNum) {
+    temp = temp.map(() => {
+        return new Promise((resolve, reject) => {
             run();
-        }
+            function run() {
+                if (index >= tasks.length) {
+                    resolve();
+                    return;
+                }
+                const curIndex = index;
+                const task = tasks[index++];
 
-        function run() {
-            const curIndex = index++;
-            if (curIndex >= len) {
-                resolve(results);
-                return;
+                task().then((data) => {
+                    results[curIndex] = data;
+                    run();
+                }).catch((error) => reject(error));
             }
-            const task = tasks[curIndex];
-
-            task().then((data) => {
-                results[curIndex] = data;
-                run();
-            }).catch((error) => reject(error));
-        }
+        });
     });
-
+    return Promise.all(temp).then(() => results);
 }
-
 
 creatConcurrentRqe(tasks, 3).then((results) => {
     console.log('success->', results);

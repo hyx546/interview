@@ -1,24 +1,24 @@
-// myPromise.prototype.then = (onFulfilled, onRejected) => {
+myPromise.prototype.then = (onFulfilled, onRejected) => {
 
-//   const self = this;
-//   onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value;
-//   onRejected = typeof onRejected === 'function' ? onRejected : reason => { throw (reason) }
-//   if (self.status === 'fulfilled') {
-//     return new Promise((resolve, reject) => {
+  const self = this;
+  onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value;
+  onRejected = typeof onRejected === 'function' ? onRejected : reason => { throw (reason) }
+  if (self.status === 'fulfilled') {
+    return new Promise((resolve, reject) => {
 
-//     })
-//   }
-//   if (self.status === 'rejected') {
-//     return new Promise((resolve, reject) => {
+    })
+  }
+  if (self.status === 'rejected') {
+    return new Promise((resolve, reject) => {
 
-//     })
-//   }
-//   if (self.status === 'pending') {
-//     return new Promise((resolve, reject) => {
+    })
+  }
+  if (self.status === 'pending') {
+    return new Promise((resolve, reject) => {
 
-//     })
-//   }
-// }
+    })
+  }
+}
 
 
 function test(a, b) {
