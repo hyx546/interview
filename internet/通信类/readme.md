@@ -81,3 +81,7 @@ b.html
 
 1. 客户端在请求中设置`withCredenticals`为true
 2. 服务器在响应中设置`Access-Control-Allow-Credenticals`
+
+- options 预检缓存
+
+通过设置`Access-Control-Max-Age`, 在一定时间内，后续请求不会再发起options预检请求
