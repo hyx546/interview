@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>websocket client</title>
+	</head>
+	<body>
+		<script>
+			const ws = new WebSocket("ws://localhost:9999");
+
+			// 客户端和服务端建立连接后触发
+			ws.onopen = function (ev) {
+				console.log("Connection open ....");
+				ws.send("hello Websockets");
+			};
+
+			// 服务器给客户端发送信息时触发
+			ws.onmessage = function (ev) {
+				console.log("received message", ev.data);
+			};
+
+			// 关闭连接时触发
+			ws.onclose = function (ev) {
+				console.log("Connection close ....");
+			};
+		</script>
+	</body>
+</html>
