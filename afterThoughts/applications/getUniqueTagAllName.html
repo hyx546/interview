@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div>
+			13455
+			<div>
+				234
+				<a href="#">这是一个链接</a>
+			</div>
+			<p>ffff</p>
+			<img src="#" alt="img" />
+			<head>
+				头
+			</head>
+			<p>344444</p>
+		</div>
+		<script>
+			// 给一段html代码，获取html的所有标签名，重复的保留一个即可
+			function getTagAllName(node) {
+				const set = new Set();
+
+				const dfs = (node) => {
+					if (node.nodeType === 1) {
+						console.log(node);
+						const nodeName = node.nodeName;
+						set.add(nodeName);
+					}
+					const children = node.childNodes;
+					if (!children.length) return;
+					children.forEach((item) => {
+						dfs(item);
+					});
+				};
+
+				dfs(node);
+				return Array.from(set);
+			}
+
+			const arr = getTagAllName(document);
+			console.log(arr);
+		</script>
+	</body>
+</html>
