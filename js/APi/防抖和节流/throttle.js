@@ -1,5 +1,5 @@
 function throttle(fn, ms) {
-    let prev = 0;
+    let prev = Date.now();
 
     return function () {
         const self = this;
