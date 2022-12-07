@@ -22,3 +22,4 @@ function myNew(fn,...args){
   return result instanceof Object  ? result : obj;
 }
 
+r432

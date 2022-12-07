@@ -13,7 +13,7 @@ const tasks = [
     () => delay(1008, true),
     () => delay(1002, true),
     () => delay(1005, true),
-    () => Promise.reject('error', false)
+    // () => Promise.reject('error', false)
 ];
 
 /**
